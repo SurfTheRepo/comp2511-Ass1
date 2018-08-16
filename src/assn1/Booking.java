@@ -2,37 +2,35 @@ package assn1;
 
 public class Booking {
 
-	private Hotel hotel;
-	private Room room;
 	private String occupant;
-	private int date;
+	private boolean reserved;
 	
-	public Booking(String occupant, int date) {
+	public Booking(String occupant, boolean reserved) {
 		this.occupant = occupant;
-		this.date = date;
+		this.reserved = reserved;
 	}
-
 	
+	public void setBooking(String occupant) {
+		this.occupant = occupant;
+		this.reserved = true;
+	}
+	public void cancelBooking(String occupant) {
+		if(this.occupant.matches(occupant)) {
+			this.occupant = "";
+			this.reserved = false;
+		}
+	}
 	
-	
-	
-	
-	
+	public boolean getReserved() {
+		return reserved;
+	}
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
+	}
 	public String getOccupant() {
 		return occupant;
 	}
 	public void setOccupant(String occupant) {
 		this.occupant = occupant;
 	}
-
-	public int getDate() {
-		return date;
-	}
-	public void setDate(int date) {
-		this.date = date;
-	}
-	
-	
-	
-	
 }
