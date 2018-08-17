@@ -4,6 +4,10 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+//import ass1.MonthCalculator;
 
 
 public class HotelBookingSystem {
@@ -38,11 +42,11 @@ public class HotelBookingSystem {
 			//Booking <name> <month> <date> <numdays> <type1> <number1> <type2> <number2> . . .
 		} else if (command_arr[0].matches("Change")) {
 			System.out.println("Change");
-			this.changeCommand(command_arr[1]);
+			//this.changeCommand(command_arr[1]);
 			//Change <name> <month> <date> <numdays> <type1> <number1> <type2> <number2> . . .
 		} else if (command_arr[0].matches("Cancel")) {
 			System.out.println("Cancel");
-			this.cancelCommand(command_arr[1]);
+			//this.cancelCommand(command_arr[1]);
 			//Cancel <name>
 		} else {
 			System.out.println("CUCKED: "+ command);
@@ -51,32 +55,70 @@ public class HotelBookingSystem {
     }
 	
 	public void hotelCommand(String command) {  //done
-		String arr[] = command.split(" ",2);
-		String roomDetails[] = arr[1].split(" ", 2);
+		String command_arr[] = command.split(" ",2);
+		String roomDetails[] = command_arr[1].split(" ", 2);
 		//System.out.println(this.toString());
 		if(this.hotels.isEmpty()) {
-			Hotel newHotel = new Hotel(arr[0]);
+			Hotel newHotel = new Hotel(command_arr[0]);
 			newHotel.newRoom(Integer.valueOf(roomDetails[0]), Integer.valueOf(roomDetails[1]));
 			this.hotels.add(newHotel);
 		} else {
 			for(Hotel hotel: this.hotels) {
-				if(arr[0].matches(hotel.getName())) {
+				if(command_arr[0].matches(hotel.getName())) {
 					hotel.newRoom(Integer.valueOf(roomDetails[0]), Integer.valueOf(roomDetails[1]));
 					return;
 				}
 			}
-			Hotel newHotel = new Hotel(arr[0]);
+			Hotel newHotel = new Hotel(command_arr[0]);
 			newHotel.newRoom(Integer.valueOf(roomDetails[0]), Integer.valueOf(roomDetails[1]));
 			this.hotels.add(newHotel);
 		}
 	}
-	public void bookingCommand(String command) {
+	public void bookingCommand(String command) { //todo
+		//Booking <name> <month> <date> <numdays> <type1> <number1> <type2> <number2> . . .
+		String command_arr[] = command.split(" ", 5); //name= command_arr[0], 
+		int date = MonthCalculator.dateToInt(command_arr[1], command_arr[2]);
+		int duration = Integer.valueOf(command_arr[3]);
+		
+				
+		//String bookingList[] = command.split("\w \d+", command_arr[4]);
+		
+		//split booking string into room types and amount
+		ArrayList<String> allMatches = new ArrayList<String>();
+		Matcher m = Pattern.compile("\\w+ \\d+").matcher(command_arr[4]);
+		while (m.find()) {
+		   allMatches.add(m.group());
+		 }
+		
+		for(String roomBooking: allMatches) {
+			String type_and_amount[] = roomBooking.split(" ", 2);
+			System.out.println("for " + command_arr[0]+ " date: "+date+" duration:"+duration + " type: " + type_and_amount[0] + " amount "+ type_and_amount[1]);
+			
+			
+		}
+		
+		/*if(this.hotels.isEmpty()) {
+			System.out.println("unable to make booking");
+		} else {
+			for(Hotel hotel: this.hotels) {
+				for(String roomBooking: m) {
+					String type_and_amount[] = roomBooking.split(" ", 2);
+					
+				}
+			}
+		}*/
+		
+		//checkavailibty on each hotel, find one that has room for all of request
+		//loop thru the hotels then loop thru requests on each hotel, if one requests fails return false
+		// and try another hotel, if none pass return fail message
+		System.out.println(date);
+		
 		
 	}
-	public void changeCommand(String command) {
+	public void changeCommand(String command) { //todo
 		
 	}
-	public void cancelCommand(String command) {
+	public void cancelCommand(String command) { //todo
 		
 	}
 	public void printCommand(String command) { //Semi done needs formatting properly

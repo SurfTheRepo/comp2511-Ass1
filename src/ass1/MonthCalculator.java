@@ -7,7 +7,8 @@ public class MonthCalculator {
 		return Integer.toString(date);
 	}
 	
-	public static int dateToInt(String month, int date) {
+	public static int dateToInt(String month, String date_as_string) {
+		int date = Integer.valueOf(date_as_string);
 		if(month.matches("Jan")) {//31
 			
 		} else if(month.matches("Feb")) {//28

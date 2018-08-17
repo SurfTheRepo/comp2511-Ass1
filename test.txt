@@ -6,3 +6,5 @@ Print firstHotel
 Print SecondHotel
 Cancel
 Change
+Booking howard Dec 12 3 double 1 quadruple 4
+Booking gwen Feb 3 1 single 2 verysmallroom 7
