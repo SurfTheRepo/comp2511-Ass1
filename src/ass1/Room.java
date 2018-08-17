@@ -1,4 +1,5 @@
-package assn1;
+package ass1;
+
 
 public class Room {
 
@@ -35,10 +36,14 @@ public class Room {
 		}
 	}
 	
-	
-	
+		
 	public int getName() {
 		return name;
+	}
+
+	@Override
+	public String toString() {
+		return name + ", " + size;
 	}
 
 	public void setName(int name) {

@@ -1,0 +1,8 @@
+first line
+Hotel firstHotel 102 2
+Hotel firstHotel 103 1
+Hotel SecondHotel 22 2
+Print firstHotel
+Print SecondHotel
+Cancel
+Change

@@ -1,13 +1,13 @@
-package assn1;
+package ass1;
 
 public class MonthCalculator {
 	
 	//to finish
-	public String intToDate(int date) {
-		return String.format(date);
+	public static String intToDate(int date) {
+		return Integer.toString(date);
 	}
 	
-	public int dateToInt(String month, int date) {
+	public static int dateToInt(String month, int date) {
 		if(month.matches("Jan")) {//31
 			
 		} else if(month.matches("Feb")) {//28

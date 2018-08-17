@@ -1,4 +1,4 @@
-package assn1;
+package ass1;
 
 public class Booking {
 

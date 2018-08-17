@@ -1,4 +1,4 @@
-package assn1;
+package ass1;
 
 public class Hotel {
 	private static int BIG_ENOUGH_NUMBER = 10;
@@ -30,11 +30,16 @@ public class Hotel {
 	}
 	
 	
+	public void printRooms() {
+		for(int i = 0; i< number_of_rooms; i++) {
+			System.out.println(this.name + " " + this.rooms[i].toString());
+		}
+		
+	}
+	
+	
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
+
 }
