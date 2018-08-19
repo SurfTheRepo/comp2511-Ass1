@@ -47,6 +47,14 @@ public class Room {
 			
 		}
 	}
+	
+	/**
+	 * Ensures room is free incase their are multiple rooms of same size in hotel
+	 *
+	 * @param date
+	 * @param end_date 
+	 * @return boolean of if available or not
+	 */
 	public boolean sanityCheckAvailility(int date, int end_date) {
 		for(int i = date; i <= end_date; i++) {
 			if(this.bookings[i].getReserved()) {

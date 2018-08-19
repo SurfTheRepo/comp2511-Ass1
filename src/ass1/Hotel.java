@@ -61,7 +61,7 @@ public class Hotel {
 				//System.out.println(roomsBooked);
 				return roomsBooked;
 			}
-			if(room.getSize().matches(size) && room.sanityCheckAvailility(date,duration+date)) {
+			if(room.getSize().matches(size) && room.sanityCheckAvailility(date,(duration+date))) {
 				//System.out.println("TEST1:"+ " size="+" room:"+ room.getName());
 				room.newBooking(name, date, date+duration);
 				roomsBooked.add(room.getName());
@@ -84,7 +84,8 @@ public class Hotel {
 		int amount = Integer.valueOf(str_amount);
 		int count = 0;
 		for(Room room: this.rooms) {
-			if(room.checkAvailbility(size, date, date+duration)) {
+			//System.out.println(date+ " "+ (date+duration));
+			if(room.checkAvailbility(size, date, (date+duration))) {
 				count++;
 			}		
 		}
@@ -109,7 +110,7 @@ public class Hotel {
 		int amount = Integer.valueOf(str_amount);
 		int count = 0;
 		for(Room room: this.rooms) {
-			if(room.checkAvailbilityIgnoreSpecific(name, size, date, date+duration)) {
+			if(room.checkAvailbilityIgnoreSpecific(name, size, date, (date+duration))) {
 				count++;
 			}		
 		}

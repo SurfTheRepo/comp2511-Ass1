@@ -5,7 +5,9 @@ Hotel Burleigh 101 2
 Booking Aarthi Jan 25 2 single 1 double 1
 Booking Rob Jan 24 4 double 1
 Booking Stephanie Jan 26 1 double 1
+Print Surfers
 Change Aarthi Jan 27 3 single 1
+Print Surfers
 Booking Gary Jan 25 2 single 1
 Cancel Stephanie
 Booking Hussein Jan 26 1 single 1
