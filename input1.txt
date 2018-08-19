@@ -1,0 +1,13 @@
+#Testing creating multiple hotels and booking people into them
+# and canceling bookings, also testing the print func
+Hotel firstHotel 102 2
+Hotel firstHotel 103 1
+Hotel firstHotel 33 2
+Hotel firstHotel 43 2
+Hotel SecondHotel 22 2
+Hotel SecondHotel 141 2
+Booking howard Dec 12 3 double 2
+Booking Steve Feb 13 22 double 1
+Print firstHotel
+Cancel howard
+Print firstHotel

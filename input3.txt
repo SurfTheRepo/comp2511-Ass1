@@ -1,0 +1,9 @@
+#testing that hotels with multiple rooms of different sizes
+#correctly allocate bookings and that duration of stays 
+# are correct
+Hotel uno 929 3
+Hotel uno 23 2
+Hotel uno 7 1
+Booking person1 Mar 8 4 single 1 double 1 triple 1
+Booking person2 Mar 12 2 single 1 double 1 triple 1
+Booking person3 Mar 13 2 single 1 double 1 triple 1

@@ -1,0 +1,10 @@
+#Checking if can rebook for the same date/room under same person
+#Also testing that cant rebook into another
+Hotel uno 42 1
+Hotel uno 43 2
+Booking John Jan 3 2 double 1 single 1
+Print uno
+Change John Jan 3 2 double 1
+Print uno
+Booking Steve Jan 3 2 single 1
+Change John Jan 3 2 single 1

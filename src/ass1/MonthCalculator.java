@@ -2,11 +2,47 @@ package ass1;
 
 public class MonthCalculator {
 	
-	//to finish
+	/**
+	 * Takes an int representing the date in the year and 
+	 * converts it to month representation eg. 12 becomes "Jan 12"
+	 * @param date integer representation of the date
+	 * @return date converted to string
+	 */
 	public static String intToDate(int date) {
-		return Integer.toString(date);
+		if(date <= 31) {//31
+			return "Jan " + date;
+		} else if(date <= 59) {//28
+			return "Feb " + (date-31); 
+		} else if(date <= 90) {//31
+			return "Mar " + (date - 59);
+		} else if(date <= 120) {//31
+			return "Apr " + (date - 90);
+		} else if(date <= 151) {//31
+			return "May " + (date - 120);
+		} else if(date <= 181) {//31
+			return "Jun " + (date - 151);
+		} else if(date <= 212) {//31
+			return "Jul " + (date - 181);	
+		} else if(date <= 243) {//31
+			return "Aug " + (date - 212);	
+		} else if(date <= 273) {//31
+			return "Sep " + (date - 243);	
+		} else if(date <= 304) {//31
+			return "Oct " + (date - 273);	
+		} else if(date <= 334) {//31
+			return "Nov " + (date - 304);
+		} else if(date <= 365) {//31
+			return "Dec " + (date - 334);
+		}
+		return "Hmm";
 	}
 	
+	/**
+	 * Converts month and date formant to int format
+	 * @param month the month
+	 * @param date_as_string the date in the month
+	 * @return int as date in the year (out of 365 days)
+	 */
 	public static int dateToInt(String month, String date_as_string) {
 		int date = Integer.valueOf(date_as_string);
 		if(month.matches("Jan")) {//31
@@ -36,6 +72,5 @@ public class MonthCalculator {
 		}
 		return date;
 	}
-	
-	
+
 }

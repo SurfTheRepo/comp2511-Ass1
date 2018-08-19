@@ -1,0 +1,11 @@
+Booking howard firstHotel 102 33 
+Booking Steve firstHotel 102 
+firstHotel 102 Feb 13 21 Dec 12 24 
+firstHotel 103 
+firstHotel 33 Dec 12 2 
+firstHotel 43 
+Cancel howard
+firstHotel 102 Feb 13 21 
+firstHotel 103 
+firstHotel 33 
+firstHotel 43 

@@ -1,0 +1,8 @@
+Booking John uno 43 42 
+uno 42 Jan 3 1 
+uno 43 Jan 3 1 
+Changing John uno 43 
+uno 42 
+uno 43 Jan 3 1 
+Booking Steve uno 42 
+Change rejected
