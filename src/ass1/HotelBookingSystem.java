@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import java.util.Collections;
 //import ass1.MonthCalculator;
 /**
  * Hotel booking system, contains the main to run the program
@@ -118,6 +118,7 @@ public class HotelBookingSystem {
 		} else {
 			for(Hotel hotel: this.hotels) {
 				for(String roomBooking: allMatches) {
+					
 					String type_and_amount[] = roomBooking.split(" ", 2);
 					if(hotel.checkAvailbility(type_and_amount[0], type_and_amount[1], date,duration)) {
 						rooms_available = true;
@@ -131,15 +132,15 @@ public class HotelBookingSystem {
 				if(rooms_available) {
 					//Booking Stephanie Burleigh 101
 					System.out.print("Booking "+ command_arr[0]+" "+ hotel.getName()+ " ");
+					ArrayList<Integer> rooms= new ArrayList<Integer>();
 					for(String roomBooking: allMatches) {
 						String type_and_amount[] = roomBooking.split(" ", 2);
-						ArrayList<Integer> rooms = hotel.newBooking(command_arr[0], type_and_amount[0], type_and_amount[1], date,duration);
-						for(int room: rooms) {
-							System.out.print(room);
-							System.out.print(" " );
-							
-						}
-						
+						rooms.addAll(hotel.newBooking(command_arr[0], type_and_amount[0], type_and_amount[1], date,duration));
+					}
+					Collections.sort(rooms);
+					for(int room: rooms) {
+						System.out.print(room);
+						System.out.print(" ");
 					}
 					System.out.print("\n");
 					return;
@@ -188,10 +189,8 @@ public class HotelBookingSystem {
 					}
 				}
 				if(rooms_available) {
-					//do cancel command
 					this.cancelCommand(command_arr[0]);
-					//Booking Stephanie Burleigh 101
-					System.out.print("Changing "+ command_arr[0]+" "+ hotel.getName()+ " ");
+					System.out.print("Change "+ command_arr[0]+" "+ hotel.getName()+ " ");
 					for(String roomBooking: allMatches) {
 						String type_and_amount[] = roomBooking.split(" ", 2);
 						ArrayList<Integer> rooms = hotel.newBooking(command_arr[0], type_and_amount[0], type_and_amount[1], date,duration);

@@ -47,6 +47,15 @@ public class Room {
 			
 		}
 	}
+	public boolean sanityCheckAvailility(int date, int end_date) {
+		for(int i = date; i <= end_date; i++) {
+			if(this.bookings[i].getReserved()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	
 	/**
 	 * Method that determines if room is available for specific size and dates
@@ -118,6 +127,7 @@ public class Room {
 		return name;
 	}
 	
+		
 	/**
 	 * getter for size of room
 	 * @return size of room as string

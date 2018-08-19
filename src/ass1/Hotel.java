@@ -55,12 +55,15 @@ public class Hotel {
 		int count = 0;
 		int amount = Integer.valueOf(str_amount);
 		for(Room room: this.rooms) {
+			//System.out.println("TEST:"+ " size="+ size + " amount:"+ amount + " count:"+count+" room:"+ room.getName());
 			if(count == amount) {
 				this.people_booked.add(name);
+				//System.out.println(roomsBooked);
 				return roomsBooked;
 			}
-			if(room.getSize().matches(size)) {
-				room.newBooking(name, date, date+duration-1);
+			if(room.getSize().matches(size) && room.sanityCheckAvailility(date,duration+date)) {
+				//System.out.println("TEST1:"+ " size="+" room:"+ room.getName());
+				room.newBooking(name, date, date+duration);
 				roomsBooked.add(room.getName());
 				count++;
 				
@@ -81,7 +84,7 @@ public class Hotel {
 		int amount = Integer.valueOf(str_amount);
 		int count = 0;
 		for(Room room: this.rooms) {
-			if(room.checkAvailbility(size, date, date+duration-1)) {
+			if(room.checkAvailbility(size, date, date+duration)) {
 				count++;
 			}		
 		}
@@ -106,7 +109,7 @@ public class Hotel {
 		int amount = Integer.valueOf(str_amount);
 		int count = 0;
 		for(Room room: this.rooms) {
-			if(room.checkAvailbilityIgnoreSpecific(name, size, date, date+duration-1)) {
+			if(room.checkAvailbilityIgnoreSpecific(name, size, date, date+duration)) {
 				count++;
 			}		
 		}
